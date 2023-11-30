@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Index from "../Pages/Index/Index";
+import Home from "../Pages/Home/Home";
 
 
 
@@ -12,6 +13,11 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path:"/",
                 element:<Index></Index>
+            },
+
+            {
+                path:"/:id",
+                element: <Home></Home>
             },
         ]
     }

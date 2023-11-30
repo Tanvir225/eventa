@@ -2,8 +2,45 @@ import backGroundImage from '../../assets/bg_img.jpg'
 import Marquee from "react-fast-marquee";
 import Lottie from 'lottie-react';
 import introAnimation from "../../animation/intro.json"
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const Index = () => {
+
+    //useState for store select data
+    const [select,setSelect] = useState('')
+
+    // navigation
+    const navigate = useNavigate()
+
+
+    //function for handle Change
+    const handleSelect = (e)=>{
+        e.preventDefault()
+        const category = e.target.value;
+        setSelect(category)
+
+        navigate(`/${category}`)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <div className="hero min-h-screen" style={{ backgroundImage: `url(${backGroundImage})` }}>
             <div className="hero-overlay bg-opacity-60"></div>
@@ -21,9 +58,9 @@ const Index = () => {
 
                     {/* form for get data */}
 
-                    <form className='w-full text-yellow-600 font-semibold'>
+                    <form onChange={handleSelect} className='w-full text-yellow-600 font-semibold'>
                         <select className="select w-full select-secondary ">
-                            <option disabled selected>Select language</option>
+                            <option disabled selected>What Are You Looking For</option>
                             <option>English</option>
                             <option>Japanese</option>
                             <option>Italian</option>
