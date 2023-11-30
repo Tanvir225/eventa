@@ -10,10 +10,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
 
-    //useState for store select data
-    const [select,setSelect] = useState('')
+   
 
-    // navigation
+    // navigate
     const navigate = useNavigate()
 
 
@@ -21,8 +20,6 @@ const Index = () => {
     const handleSelect = (e)=>{
         e.preventDefault()
         const category = e.target.value;
-        setSelect(category)
-
         navigate(`/${category}`)
     }
 

@@ -14,7 +14,7 @@ const Navbar = () => {
 
 
     const links = <>
-            <li><NavLink to={"/"}>Places</NavLink></li>
+            <li><NavLink to={"/"}>Venues</NavLink></li>
     </>
 
 

@@ -1,8 +1,8 @@
 
 .swiper {
     width: 100%;
-    height: 70vh;
-    background-color: #d46a6a
+    height: 85vh;
+    background-color: #d46a6a;
    
   }
   
@@ -22,5 +22,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 15px;
   }
   
