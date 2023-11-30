@@ -61,9 +61,9 @@ const Index = () => {
                     <form onChange={handleSelect} className='w-full text-yellow-600 font-semibold'>
                         <select className="select w-full select-secondary ">
                             <option disabled selected>What Are You Looking For</option>
-                            <option>English</option>
-                            <option>Japanese</option>
-                            <option>Italian</option>
+                            <option>Shopping</option>
+                            <option>Booking</option>
+                            <option>Car</option>
                         </select>
                     </form>
 

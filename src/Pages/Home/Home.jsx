@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Slider from "../../Components/Slider/Slider";
 import Service from "../../Components/Service/Service";
@@ -6,7 +6,15 @@ import Service from "../../Components/Service/Service";
 
 const Home = () => {
 
-    const {id} = useParams()
+    //get id 
+    const {id} = useParams();
+
+    //get data
+    const data = useLoaderData()
+
+    //filtered data
+    const filterData = data.filter(d => d.category === id.toLowerCase())
+    console.log(filterData);
 
 
 

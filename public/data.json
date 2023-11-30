@@ -1,0 +1,53 @@
+[
+    {
+      "id": 1,
+      "title": "Grand Ballroom",
+      "image": "https://img.freepik.com/free-vector/empty-auditorium-lecture-hall-meeting-room_33099-1842.jpg?w=900&t=st=1701338985~exp=1701339585~hmac=8c51073879541dcce95410e133acf6c84938624f7a0a185e30a95655a85c1598",
+      "category": "booking",
+      "details": "Host your elegant events in our spacious grand ballroom. Our ballroom provides a breathtaking view of the city skyline",
+      "location": "Main Building, 2nd Floor",
+      "backgroundColor": "#ffd700",
+      "gallery": [
+        {"url": "grand_ballroom_image1.jpg"},
+        {"url": "grand_ballroom_image2.jpg"},
+        {"url": "grand_ballroom_image3.jpg"}
+      
+      ]
+
+      
+    },
+    {
+      "id": 2,
+      "title": "Fashion Boutique",
+      "image": "https://i.ibb.co/R3DY22Q/Clothing.png",
+      "category": "shopping",
+      "details": "Explore the latest fashion trends in our boutique.Our curated collection includes designer dresses, accessories, and more.",
+      "location": "Shopping Plaza, Ground Floor",
+      "backgroundColor": "#b76e79",
+      "gallery": [
+        {"url": "fashion_boutique_image1.jpg"},
+        {"url": "fashion_boutique_image2.jpg"},
+        {"url": "fashion_boutique_image3.jpg"}
+        
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Luxury Car Rentals",
+      "image": "https://img.freepik.com/free-vector/car-rental-concept-illustration_114360-9267.jpg?w=740&t=st=1701339125~exp=1701339725~hmac=3c099a5cacbbb73b9f528d66e540569d523125fcd0d5363633e75e855033e178",
+      "category": "car",
+      "details": "Drive in style with our fleet of luxury rental cars. Whether you're attending a special event or exploring the city",
+      "location": "Car Rental Center, Entrance",
+      "backgroundColor": "#749db1",
+      "gallery": [
+        {"url": "luxury_car_rentals_image1.jpg"},
+        {"url": "luxury_car_rentals_image2.jpg"},
+        {"url": "luxury_car_rentals_image3.jpg"}
+        
+      ]
+    }
+
+  
+    
+  ]
+  
