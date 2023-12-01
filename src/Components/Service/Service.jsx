@@ -9,9 +9,9 @@ const Service = () => {
   return (
     <div className="space-y-3 mt-10">
 
-      <h2 className="text-3xl mb-10 text-blue-950 text-center font-bold">
+      <h2 className="text-3xl  mb-10 text-blue-950 text-center font-bold">
         Excellence in Every Service,
-        <br />
+        
         <span className="text-yellow-500"> Every Time.</span>
       </h2>
 

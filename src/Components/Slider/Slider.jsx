@@ -11,7 +11,7 @@ import slider3 from "../../assets/slider-3-min.jpg"
 
 const Slider = () => {
   return (
-    <div>
+    <div className="">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -24,42 +24,46 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="relative">
-            <div className="absolute text-4xl text-white font-semibold z-20 top-[30%] left-[25%]">
-              Two hearts, one love, let the <span className="text-yellow-400">adventure begin!</span>
-            </div>
-            <div>
-              <img src={slider1} alt='slider-1' className="brightness-50" />
+
+
+          <div className="hero min-h-screen  " style={{ backgroundImage: `url(${slider1})` }}>
+            <div className="hero-overlay brightness-50 bg-opacity-60"></div>
+            <div className="hero-content text-center text-neutral-content">
+              <div className="max-w-md">
+                <p className="text-4xl -mt-32 text-white font-semibold" > Two hearts, one love, let the <span className="text-yellow-400">adventure begin!</span></p>
+
+              </div>
             </div>
           </div>
-        </SwiperSlide>
 
+        </SwiperSlide>
 
         <SwiperSlide>
-          <div>
-            <div className="absolute text-4xl text-white font-semibold z-20 top-[40%] left-[25%]">
-              A promise of forever. Join us for the <br /> <span className="text-yellow-400">wedding bliss!</span>
-            </div>
-            <div>
-              <img src={slider2} alt='slider-1' className="brightness-50" />
+
+
+          <div className="hero min-h-screen " style={{ backgroundImage: `url(${slider2})` }}>
+            <div className="hero-overlay brightness-50 bg-opacity-60"></div>
+            <div className="hero-content text-center text-neutral-content">
+              <div className="max-w-md">
+                <p className="text-4xl -mt-32 text-white font-semibold" >A promise of forever. Join us for the <br /> <span className="text-yellow-400">wedding bliss!</span></p>
+
+              </div>
             </div>
           </div>
+
         </SwiperSlide>
-
-
 
         <SwiperSlide>
-          <div>
-            <div className="absolute text-4xl  text-white font-semibold z-20 top-[40%] left-[20%]">
-            As two become one, join us in the celebration of <br /><span className="text-yellow-400">Tanvir ❤️ Mukty</span><br />love story!
-            </div>
-            <div>
-              <img src={slider3} alt='slider-1' className="brightness-50 opacity-70" />
+          <div className="hero min-h-screen " style={{ backgroundImage: `url(${slider3})` }}>
+            <div className="hero-overlay brightness-50 bg-opacity-75"></div>
+            <div className="hero-content text-center text-neutral-content">
+              <div className="max-w-md">
+                <p className="text-4xl -mt-20 text-white font-semibold" > As two become one, join us in the celebration of <br /><span className="text-yellow-400">Tanvir ❤️ Mukty</span> Love story</p>
+
+              </div>
             </div>
           </div>
         </SwiperSlide>
-
-
       </Swiper>
     </div>
   );

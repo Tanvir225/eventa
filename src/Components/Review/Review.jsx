@@ -9,7 +9,7 @@ const Review = ({ review }) => {
             {
                 review && review.map(user =>
                     <div key={user.id} >
-                        <div  className="text-gray-700 bg-white shadow-md bg-clip-border rounded-xl ">
+                        <div  className="w-1/2 mx-auto md:w-full text-gray-700 bg-white shadow-md bg-clip-border rounded-xl ">
                             <div className="w-28 py-5 rounded-lg mx-auto">
                                 <img src={user.image} alt={`${user.name} image`} className='w-full h-full object-cover' />
                             </div>
