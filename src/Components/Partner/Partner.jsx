@@ -6,7 +6,7 @@ import Lottie from 'lottie-react';
 
 const Partner = () => {
     return (
-        <div className='flex gap-5 justify-center items-center container mx-auto'>
+        <div className='flex flex-col md:flex-row gap-5 justify-center items-center container mx-auto'>
             <div className=''>
                 <Lottie animationData={idea} className='bg-blue-50 rounded-lg shadow-lg' ></Lottie>
             </div>

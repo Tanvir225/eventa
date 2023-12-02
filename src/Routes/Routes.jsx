@@ -3,6 +3,8 @@ import Main from "../Layout/Main";
 import Index from "../Pages/Index/Index";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import User from "../Pages/Register/User";
+import Vendor from "../Pages/Register/Vendor";
 
 
 
@@ -25,6 +27,18 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path:"/login",
                 element: <Login></Login>,
+               
+            },
+
+            {
+                path:"/user-reg",
+                element: <User></User>,
+               
+            },
+
+            {
+                path:"/vendor-reg",
+                element: <Vendor></Vendor>,
                
             },
         ]

@@ -75,7 +75,7 @@ const Home = () => {
 
             <div className="relative">
                 <Slider></Slider>
-                <div className="w-10/12 md:w-1/2 mx-auto  z-20 left-10 -bottom-10  md:left-[27%] md:-bottom-[15%] absolute  bg-slate-100 shadow-lg rounded-lg">
+                <div className="w-10/12 md:w-1/2 mx-auto  z-40 left-10 top-[85%]  md:left-[27%] md:-bottom-[15%] md:top-[90%]  absolute  bg-slate-100 shadow-lg rounded-lg">
                     <form className='w-full text-yellow-600 p-10 font-semibold'>
                         <select className="select w-full select-secondary ">
                             <option disabled selected>What Are You Looking For</option>

@@ -26,7 +26,7 @@ const Slider = () => {
         <SwiperSlide>
 
 
-          <div className="hero min-h-screen  " style={{ backgroundImage: `url(${slider1})` }}>
+          <div className="hero h-[60vh] md:h-[75vh]  " style={{ backgroundImage: `url(${slider1})` }}>
             <div className="hero-overlay brightness-50 bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
@@ -41,7 +41,7 @@ const Slider = () => {
         <SwiperSlide>
 
 
-          <div className="hero min-h-screen " style={{ backgroundImage: `url(${slider2})` }}>
+          <div className="hero h-[60vh] md:h-[75vh] " style={{ backgroundImage: `url(${slider2})` }}>
             <div className="hero-overlay brightness-50 bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
@@ -54,7 +54,7 @@ const Slider = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="hero min-h-screen " style={{ backgroundImage: `url(${slider3})` }}>
+          <div className="hero h-[60vh] md:h-[75vh] " style={{ backgroundImage: `url(${slider3})` }}>
             <div className="hero-overlay brightness-50 bg-opacity-75"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
