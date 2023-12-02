@@ -4,10 +4,14 @@ import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import register from "../../../src/animation/register.json";
 import Navbar from "../../Components/Navbar/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const Vendor = () => {
   return (
     <>
+    <Helmet>
+        <title>Eveta | Vendor - Reg</title>
+      </Helmet>
       <Navbar></Navbar>
       <div className="bg-base-100 w-[80%] mx-auto md:w-1/2 shadow-lg rounded lg px-10 py-10 space-y-6 m-5">
         <p className="text-2xl text-center font-bold divider">

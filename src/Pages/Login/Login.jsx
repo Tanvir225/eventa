@@ -5,14 +5,19 @@ import login from "../../../src/animation/Login.json";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   return (
     <div>
+      <Helmet>
+        <title>Eveta | Login</title>
+      </Helmet>
+
       <Navbar></Navbar>
 
       <div className="w-[80%] m-5 md:w-1/2 px-5 py-5 mx-auto md:min-h-screen bg-base-100 shadow-lg rounded-lg flex flex-col justify-center items-center">
-        <h2 className="text-2xl font-bold mb-10">Login now</h2>
+        <h2 className="text-2xl font-bold divider">Login now</h2>
         <div className="flex  justify-center items-center ">
           <div className="w-[40%] -mt-16 md:-mt-0 ">
             <Lottie animationData={login} className="w-full h-full"></Lottie>
