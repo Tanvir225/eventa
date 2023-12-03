@@ -2,6 +2,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import ContextApi from "../../Hook/ContextApi";
 import { AuthContext } from "../../Hook/AuthProvider";
+import { useContext } from "react";
+import { CategoryContext } from "../../Hook/CategoryProvider";
 
 
 
@@ -14,6 +16,8 @@ import { AuthContext } from "../../Hook/AuthProvider";
 const Navbar = () => {
     //context Api
     const {user,logOut} = ContextApi(AuthContext) 
+
+    const {selectedCategory} = useContext(CategoryContext)
 
     //navigate
     const navigate = useNavigate()
@@ -39,7 +43,8 @@ const Navbar = () => {
     }
 
     const links = <>
-            <li><NavLink to={"/venues"}>Venues</NavLink></li>
+            <li><NavLink to={`/home/${selectedCategory}`}>Home</NavLink></li>
+            <li><NavLink to={`/${selectedCategory}/venues`}>{selectedCategory === 'shopping' ? 'Shop' : selectedCategory === 'car' ? 'Car' : 'Venues'}</NavLink></li>
             <li className="flex items-center gap-2">
               <img src={user ? user?.photoURL: 'https://i.ibb.co/HpJ3VmR/man-4140048.png'} className="w-10 rounded-full"/>
               <button onClick={handleLogout}>{user ? 'Logout' : 'Login'}</button>

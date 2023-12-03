@@ -9,6 +9,8 @@ import { Helmet } from "react-helmet-async";
 import ContextApi from "../../Hook/ContextApi";
 import { AuthContext } from "../../Hook/AuthProvider";
 import toast from "react-hot-toast";
+import { useContext } from "react";
+import { CategoryContext } from "../../Hook/CategoryProvider";
 
 
 
@@ -25,6 +27,7 @@ const Login = () => {
 
     //call contextapi
     const {logInUser,google} = ContextApi(AuthContext)
+    const {selectedCategory} = useContext(CategoryContext)
 
     //handle Login
     const handleLogin = (e)=>{
@@ -39,7 +42,7 @@ const Login = () => {
       .then(result=>{
         const user = result.user
         toast.success('Login successful')
-        navigate(location?.state ? location.state : "/")
+        navigate(location?.state ? location.state : `/home/${selectedCategory}`)
 
       })
       .catch(e=>{
@@ -53,7 +56,7 @@ const Login = () => {
         .then(result=>{
           const user = result.user
           toast.success('login successful')
-          navigate(location?.state ? location.state : "/")
+          navigate(location?.state ? location.state : `/home/${selectedCategory}`)
         })
         .catch(e=>{
           console.log(e.message);

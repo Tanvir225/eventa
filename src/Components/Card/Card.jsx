@@ -1,17 +1,22 @@
+import { useContext } from 'react';
 import {FaArrowCircleRight} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
+import { CategoryContext } from '../../Hook/CategoryProvider';
 
 const Card = ({data}) => {
 
     //destructure data
     const {title,image,category,featured,details} = data || {}
 
+    //get  category context
+    const {selectedCategory} = useContext(CategoryContext)
+
     //navigate
     const navigate = useNavigate()
     
 
     return (
-        <div onClick={()=>navigate(`details/${data.id}`)} className="card  bg-base-100 shadow-xl">
+        <div onClick={()=>navigate(`/${data.id}/details`)} className="card  bg-base-100 shadow-xl">
 
             <figure className='h-[30vh] w-full brightness-50  '><img src={image} alt={`${title} image`} className='w-full h-full object-cover ' /></figure>
 
@@ -31,5 +36,8 @@ const Card = ({data}) => {
         </div>
     );
 };
+
+
+
 
 export default Card;

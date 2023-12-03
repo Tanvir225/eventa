@@ -7,6 +7,7 @@ import User from "../Pages/Register/User";
 import Vendor from "../Pages/Register/Vendor";
 import Venues from "../Pages/Venues/Venues";
 import PrivateRoute from "./PrivateRoute";
+import Details from "../Pages/Details/Details";
 
 
 
@@ -48,9 +49,17 @@ const myCreatedRoute = createBrowserRouter([
        
 
             {
-                path: "/venues",
+                path: "/:category/venues",
                 element: <PrivateRoute>
                     <Venues></Venues>
+                </PrivateRoute>,
+                loader: () => fetch('/data.json')
+
+            },
+            {
+                path: "/:id/details",
+                element: <PrivateRoute>
+                   <Details></Details>
                 </PrivateRoute>,
                 loader: () => fetch('/data.json')
 

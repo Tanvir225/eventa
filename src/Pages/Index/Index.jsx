@@ -4,6 +4,8 @@ import Lottie from 'lottie-react';
 import introAnimation from "../../animation/intro.json"
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { CategoryContext } from '../../Hook/CategoryProvider';
 
 
 
@@ -15,33 +17,24 @@ const Index = () => {
     // navigate
     const navigate = useNavigate()
 
-    // category hold state
-    const [selectedCatagory, setSelectedCatagory] = useState('')
+    //get context
+    const { selectedCategory, setCategory } = useContext(CategoryContext);
 
 
     //function for handle Change
     const handleSelect = (e) => {
         e.preventDefault()
-        const category = e.target.value;
-        setSelectedCatagory(category)
+        
+        const selectedCategory = e.target.value;
+        setCategory(selectedCategory)
 
-        if (category) {
-            navigate(`/home/${category}`)
+        if (selectedCategory) {
+            navigate(`/home/${selectedCategory}`)
         }
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
+   
 
 
 
@@ -64,7 +57,7 @@ const Index = () => {
                     {/* form for get data */}
 
                     <form  onChange={handleSelect} className='w-full text-yellow-600 font-semibold'>
-                        <select className="select w-full select-secondary " value={selectedCatagory}>
+                        <select className="select w-full select-secondary " value={selectedCategory}>
                             <option disabled selected value=''>What Are You Looking For</option>
                             <option value={'shopping'}>Shopping</option>
                             <option value={'booking'}>Booking</option>
