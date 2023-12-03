@@ -10,17 +10,25 @@ import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
 
-   
+
 
     // navigate
     const navigate = useNavigate()
 
+    // category hold state
+    const [selectedCatagory, setSelectedCatagory] = useState('')
+
 
     //function for handle Change
-    const handleSelect = (e)=>{
+    const handleSelect = (e) => {
         e.preventDefault()
         const category = e.target.value;
-        navigate(`/${category}`)
+        setSelectedCatagory(category)
+
+        if (category) {
+            navigate(`/home/${category}`)
+        }
+
     }
 
 
@@ -55,12 +63,12 @@ const Index = () => {
 
                     {/* form for get data */}
 
-                    <form onChange={handleSelect} className='w-full text-yellow-600 font-semibold'>
-                        <select className="select w-full select-secondary ">
-                            <option disabled selected>What Are You Looking For</option>
-                            <option>Shopping</option>
-                            <option>Booking</option>
-                            <option>Car</option>
+                    <form  onChange={handleSelect} className='w-full text-yellow-600 font-semibold'>
+                        <select className="select w-full select-secondary " value={selectedCatagory}>
+                            <option disabled selected value=''>What Are You Looking For</option>
+                            <option value={'shopping'}>Shopping</option>
+                            <option value={'booking'}>Booking</option>
+                            <option value={'car'}>Car</option>
                         </select>
                     </form>
 

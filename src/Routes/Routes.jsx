@@ -5,41 +5,55 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import User from "../Pages/Register/User";
 import Vendor from "../Pages/Register/Vendor";
+import Venues from "../Pages/Venues/Venues";
+import PrivateRoute from "./PrivateRoute";
+
 
 
 
 const myCreatedRoute = createBrowserRouter([
-    {   
-        path:"/",
-        element:<Main></Main>,
-        children:[
+    {
+        path: "/",
+        element: <Main></Main>,
+        children: [
             {
-                path:"/",
-                element:<Index></Index>
+                path: "/",
+                element: <Index></Index>
             },
 
             {
-                path:"/:id",
+                path: "/home/:id",
                 element: <Home></Home>,
-                loader:()=> fetch('/data.json')
+                loader: () => fetch('/data.json')
             },
 
             {
-                path:"/login",
+                path: "/login",
                 element: <Login></Login>,
-               
+
             },
 
             {
-                path:"/user-reg",
+                path: "/user-reg",
                 element: <User></User>,
-               
+
             },
 
             {
-                path:"/vendor-reg",
+                path: "/vendor-reg",
                 element: <Vendor></Vendor>,
-               
+
+            },
+
+       
+
+            {
+                path: "/venues",
+                element: <PrivateRoute>
+                    <Venues></Venues>
+                </PrivateRoute>,
+                loader: () => fetch('/data.json')
+
             },
         ]
     }

@@ -1,5 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import ContextApi from "../../Hook/ContextApi";
+import { AuthContext } from "../../Hook/AuthProvider";
 
 
 
@@ -10,13 +12,26 @@ import toast from "react-hot-toast";
 
 
 const Navbar = () => {
+    //context Api
+    const {user,logOut} = ContextApi(AuthContext) 
 
-    const user = false 
+    //navigate
     const navigate = useNavigate()
 
+
     const handleLogout = ()=>{
+
         if (user) {
-          toast.success('logout successfull')
+          logOut()
+
+          .then(result =>{
+            toast.success('logout successful')
+          })
+          .catch(e=>{
+            console.log(e.message);
+            toast.error(e.message.slice(10,e.message.length))
+          })
+          
         }
         else{
             navigate('/login')
@@ -24,9 +39,9 @@ const Navbar = () => {
     }
 
     const links = <>
-            <li><NavLink to={"/"}>Venues</NavLink></li>
+            <li><NavLink to={"/venues"}>Venues</NavLink></li>
             <li className="flex items-center gap-2">
-              <img src="https://i.ibb.co/HpJ3VmR/man-4140048.png" className="w-10 rounded-full"/>
+              <img src={user ? user?.photoURL: 'https://i.ibb.co/HpJ3VmR/man-4140048.png'} className="w-10 rounded-full"/>
               <button onClick={handleLogout}>{user ? 'Logout' : 'Login'}</button>
               </li>
     </>

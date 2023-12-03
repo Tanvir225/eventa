@@ -2,9 +2,13 @@ import React from "react";
 import { Button, Checkbox, Input } from "@material-tailwind/react";
 import Lottie from "lottie-react";
 import register from "../../../src/animation/register.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import { Helmet } from "react-helmet-async";
+import ContextApi from "../../Hook/ContextApi";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../Hook/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 
 
@@ -14,16 +18,44 @@ import { Helmet } from "react-helmet-async";
 
 
 const User = () => {
+  // useContext api
+  const {createUser} = ContextApi(AuthContext)
+
+  //navigate
+  const navigate = useNavigate()
 
   // submit user form
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
 
     e.preventDefault();
 
-    const formData = new FormData(e.target)
+    const formData = new FormData(e.currentTarget)
+    const name = formData.get('name');
     const email = formData.get('email');
-      console.log(email);
-      console.log('object');
+    const phone = formData.get('phone');
+    const photo = formData.get('photo');
+    const password = formData.get('password');
+    
+    //call context api
+    createUser(email,password)
+    .then(result=>{
+          const user  = result.user
+          console.log(user);
+
+          //update profile
+          updateProfile(user,{
+            displayName:name,
+            photoURL:photo,
+          })
+          toast.success('user created successfully')
+          navigate('/login')
+
+    })
+    .catch(e=>{
+      console.log(e.message);
+      toast.error(e.message.slice(10,e.message.length))
+    })
+
   }
 
 
@@ -82,6 +114,7 @@ const User = () => {
 
             <div>
               <Checkbox
+                required
                 color="indigo"
                 variant="outlined"
                 label="Allow terms and condition"
@@ -90,7 +123,7 @@ const User = () => {
             </div>
 
             <div>
-              <Button className="w-full">Submit</Button>
+              <Button type="submit" className="w-full">Submit</Button>
             </div>
           </form>
         </div>

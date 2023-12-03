@@ -4,10 +4,66 @@ import { Button, Input } from "@material-tailwind/react";
 import login from "../../../src/animation/Login.json";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import ContextApi from "../../Hook/ContextApi";
+import { AuthContext } from "../../Hook/AuthProvider";
+import toast from "react-hot-toast";
+
+
+
+
 
 const Login = () => {
+
+    //get Location
+    const location = useLocation()
+    console.log(location);
+
+    //navigatie
+    const navigate = useNavigate()
+
+    //call contextapi
+    const {logInUser,google} = ContextApi(AuthContext)
+
+    //handle Login
+    const handleLogin = (e)=>{
+      e.preventDefault()
+
+      const formData = new FormData(e.currentTarget);
+      const email = formData.get('email');
+      const password = formData.get('password');
+
+      //check user
+      logInUser(email,password)
+      .then(result=>{
+        const user = result.user
+        toast.success('Login successful')
+        navigate(location?.state ? location.state : "/")
+
+      })
+      .catch(e=>{
+        toast.error(e.message.slice(10,e.message.length))
+      })
+    }
+
+    //handle media
+    const handleMedia = (media)=>{
+        media()
+        .then(result=>{
+          const user = result.user
+          toast.success('login successful')
+          navigate(location?.state ? location.state : "/")
+        })
+        .catch(e=>{
+          console.log(e.message);
+          toast.error(e.message.slice(10,e.message.length))
+        })
+    }
+
+
+
+
   return (
     <div>
       <Helmet>
@@ -23,22 +79,24 @@ const Login = () => {
             <Lottie animationData={login} className="w-full h-full"></Lottie>
           </div>
 
-          <form className=" flex-grow space-y-6">
+          <form onSubmit={handleLogin} className=" flex-grow space-y-6">
             <div className="">
               <Input
                 name="email"
                 variant="outlined"
                 color="blue-gray"
                 label="email"
+                type="email"
+                required
               />
             </div>
 
             <div className="">
-              <Input name="password" variant="outlined" label="password" />
+              <Input name="password" type="password" variant="outlined" label="password" />
             </div>
 
             <div className="text-center">
-              <Button className="w-full">Submit</Button>
+              <Button type="submit" className="w-full">Submit</Button>
             </div>
           </form>
         </div>
@@ -48,7 +106,7 @@ const Login = () => {
         <div className=" text-center space-y-5">
           <p className="text-xl  font-semibold">Continue with</p>
           <div className="flex justify-center gap-5">
-            <button className="btn btn-outline md:w-full">
+            <button onClick={()=>handleMedia(google)} className="btn btn-outline md:w-full">
               <FaGoogle></FaGoogle> google
             </button>
 
